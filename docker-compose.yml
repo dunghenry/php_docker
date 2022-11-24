@@ -1,0 +1,8 @@
+version: "3.9"
+services:
+  php_base:
+    build: .
+    volumes:
+    - ./src:/var/www/html
+    ports:
+      - 4000:80

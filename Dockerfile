@@ -1,4 +1,7 @@
-FROM php:7.4-cli
-COPY . /usr/src/myapp
-WORKDIR /usr/src/myapp
-CMD [ "php", "./app.php" ]
+FROM php:8.0-apache
+
+WORKDIR /var/www/html
+
+RUN apt-get update -y && apt-get install -y libmariadb-dev
+
+RUN docker-php-ext-install mysqli
